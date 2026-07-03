@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mycelery.celery import add
+from myapp.tasks import add
 
 # Create your views here.
 
@@ -8,7 +8,7 @@ def index(request):
     
     print("Results: ")
 
-    result1 = add.delay(10, 20)
+    result1 = add.apply_async(args=[10,20])
     
     print(result1.id)
     

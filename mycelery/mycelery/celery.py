@@ -16,8 +16,3 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 
 
-@app.task
-def add(x, y):
-    
-    time.sleep(10)
-    return x+y
