@@ -124,3 +124,15 @@ CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
 # CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_TIMEZONE = "Asia/Kolkata"
+
+
+# Celery Beat
+
+CELERY_BEAT_SCHEDULE = {
+    'every-10-seconds':{
+        'task':'myapp.tasks.clear_session_cache',
+        'schedule':10,
+        'args':('11111', )
+    }
+    # Add more periodic tasks as needed
+}
